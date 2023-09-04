@@ -1,0 +1,11 @@
+<h3>Child Component</h3>
+<button @onclick="MyMethod">Click me</button>
+@code {
+    [Parameter]
+    public EventCallback<string> onclickcallback { get; set; }
+
+    private void MyMethod()
+    {
+        onclickcallback.InvokeAsync("some text");
+    }
+}
