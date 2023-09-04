@@ -1,0 +1,11 @@
+<div style="background-color:red">
+    <h3>GrandChildComponent</h3>
+    <p>@message</p>
+    <p>@age</p>
+</div>
+@code {
+    [CascadingParameter]
+    public string message { get; set; } = "selam ben grandchild dan geldim";
+    [CascadingParameter]
+    public int age { get; set; }
+}
