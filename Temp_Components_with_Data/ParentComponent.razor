@@ -1,0 +1,21 @@
+@page "/pc"
+<ChildComponent>
+    <datas>
+        <div style="background-color:green">
+            <p>@p.id </p>
+            <p>@p.name</p>
+            <p>@p.price</p> 
+            <p>@context.id</p>
+        </div>
+    </datas>
+</ChildComponent>
+@code {
+    
+     Products p = new()
+         {
+             id = 1,
+             name = "sado",
+             price = 1000
+
+         };
+}
