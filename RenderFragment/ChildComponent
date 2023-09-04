@@ -1,0 +1,9 @@
+<h3>Child Component</h3>
+
+<div>
+    @blazorHtmlParameter
+</div>
+@code {
+    [Parameter]
+    public RenderFragment blazorHtmlParameter { get; set; }
+}
