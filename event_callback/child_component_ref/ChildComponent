@@ -1,0 +1,11 @@
+<h3>Child Component</h3>
+<p>@message</p>
+@code {
+    string message = "default text";
+    public void Show()
+    {
+        message = "Show method is called";
+        StateHasChanged();
+
+    }
+}
