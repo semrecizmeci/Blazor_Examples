@@ -1,0 +1,9 @@
+
+<div>
+    @datas(p)
+</div>
+@code {
+    [Parameter]
+    public RenderFragment<Products> datas { get; set; }
+     Products p = new();
+}
