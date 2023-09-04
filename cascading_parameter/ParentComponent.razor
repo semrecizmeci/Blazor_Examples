@@ -1,0 +1,13 @@
+@page "/page"
+<div style="background-color:green">
+    <h3>ParentComponent</h3>
+    <CascadingValue Value="@message">
+        <CascadingValue Value="@age">
+    <ChildComponent></ChildComponent>
+    </CascadingValue>
+    </CascadingValue>
+</div>
+@code {
+    public string message { get; set; } = "selam, parent den geldim";
+    public int age { get; set; } = 12;
+}
