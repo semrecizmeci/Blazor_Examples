@@ -1,13 +1,12 @@
 @page "/pc"
 <ChildComponent>
-    <datas>
+    <datas Context="bizimAdam">
         <div style="background-color:green">
-            <p>@context.id</p>
-             <p>@context.name</p>
-            <p>@context.price</p>
+            <p>@bizimAdam.id</p><br />
+            <p>@bizimAdam.name</p><br />
+            <p>@bizimAdam.price</p><br />
         </div>
     </datas>
 </ChildComponent>
 @code {
-    
 }
