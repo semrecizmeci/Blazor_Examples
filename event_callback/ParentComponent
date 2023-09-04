@@ -1,0 +1,11 @@
+@page "/pc"
+<h3>Parent Component</h3>
+<p>@message</p>
+<ChildComponent onclickcallback="HandleClick"></ChildComponent>
+@code {
+    string message = "default message";
+    private void HandleClick(string m)
+    {
+        message = m;
+    }
+}
