@@ -1,16 +1,29 @@
 
 <div>
-    @datas(p)
+@*     @datas(p) *@
+@foreach (var item in list)
+    {
+        @item.id;<br />
+        @item.name;<br />
+        @item.price;<br />
+    }
 </div>
 @code {
- 
     [Parameter]
-    Products p = new()
-        {
-            id = 1,
-            name = "sado",
-            price = 1000
+    public RenderFragment<Products> datas { get; set; }
+    Products p;
+    List<Products> list = new List<Products>
+    {
+        new Products{id=1,name="sado",price=1000},
+        new Products{id=2,name="mado",price=2000},
+        new Products{id=3,name="hado",price=3000}
+    };
+    // Products p = new()
+    //     {
+    //         id = 1,
+    //         name = "sado",
+    //         price = 1000
 
-        };
+    //     };
 
 }
