@@ -1,0 +1,10 @@
+<div style="background-color:yellow">
+    <h3>ChildComponent</h3>
+    <GrandChildComponent></GrandChildComponent>
+    <p>@message</p>
+</div>
+
+@code {
+    [CascadingParameter]
+    public string message { get; set; }
+}
