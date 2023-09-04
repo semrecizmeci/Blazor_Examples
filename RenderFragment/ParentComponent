@@ -1,0 +1,11 @@
+@page "/pc"
+<h3>Parent Component</h3>
+<blazorHtmlParameter>
+   <div class="bg-primary">
+        <p>selam ben parent</p>
+        <input type="text" />
+   </div>
+</blazorHtmlParameter>
+@code {
+ 
+}
