@@ -1,0 +1,14 @@
+@page "/pc"
+<h3>Parent Component</h3>
+<button @onclick="OnClick">click me</button>
+<p>@parentMessage</p>
+<ChildComponent @ref="c1"></ChildComponent>
+@code {
+    private string parentMessage = "Default parent text";
+    private ChildComponent c1;
+    void OnClick()
+    {
+        parentMessage = "button is clicked inside parent";
+        c1.Show();
+    }
+}
