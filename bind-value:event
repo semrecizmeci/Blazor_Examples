@@ -1,0 +1,39 @@
+@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" /><br /><br />
+<p>name: @d.name</p><br />
+<p>price : @d.price.ToString("c")</p><br /> 
+<input  type="number" @bind-value="d.price" @bind-value:event="oninput"/><br />
+<label>
+    <input type="checkbox" @bind-value="d.isActive" /> &nbsp has it been checked ?????
+</label>
+<p>aktif mi : @d.isActive</p><br />
+<label>
+    <input type="radio" value="1" name="group" checked="@(checkedd==1)" @onclick="()=>checkedd=1"/>1
+    <input type="radio" value="2" name="group" checked="@(checkedd==2)"@onclick="()=>checkedd=2" />2
+</label><br /><br />
+@checkedd
+@code {
+    int checkedd = 1;
+    Datas d = new Datas
+        {
+            id = 1,
+            name = "sado",
+            price = 12,
+            isActive=true,
+            checkedd=1,
+        };
+
+    public class Datas
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public int price { get; set; }
+        public bool isActive { get; set; }
+        public int checkedd { get; set; }
+    }
+}
