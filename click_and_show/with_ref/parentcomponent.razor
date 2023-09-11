@@ -1,19 +1,9 @@
 @page "/parent"
-
-<h3>Parent Component</h3>
-<ChildComponent @ref="childRef"></ChildComponent>
-<button @onclick="ShowText">Göster</button>
-<p>@displayText</p>
-
+<button @onclick="(()=>{
+dialog.show();
+})"> </button>
+<ChildComponent @ref="dialog"></ChildComponent>
 @code {
-    private ChildComponent childRef;
-    private string displayText = "";
-
-    private void ShowText()
-    {
-        if (childRef != null)
-        {
-            displayText = childRef.MyProperty == 0 ? "SELAM!" : "Merhaba!";
-        }
-    }
-}
+    public ChildComponent dialog;
+   
+}  
