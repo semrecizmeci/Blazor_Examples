@@ -1,5 +1,14 @@
 <h3>Child Component</h3>
+@if (display)
+{
+    <p>hiiiii</p>
+}
 
 @code {
-    public int MyProperty { get; set; }
+    public bool display = false;
+    public void show()
+    {
+        this.display = true;
+        StateHasChanged();
+    }
 }
