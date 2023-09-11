@@ -1,0 +1,9 @@
+<h3>ChildComponent</h3>
+@if(showText){
+    <p>buton ile gösterilen metin !</p>
+}
+
+@code {
+    [Parameter]
+    public bool showText { get; set; } 
+}
