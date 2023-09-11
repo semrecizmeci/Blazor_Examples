@@ -1,0 +1,12 @@
+@page "/parentDeneme"
+<h3>ParentComponent</h3>
+<ChildComponent showText="showText"></ChildComponent>
+<button @onclick="ToggleText">göster</button>
+
+@code {
+    public bool showText { get; set; } = false;
+    public void ToggleText()
+    {
+        showText = !showText;
+    }
+}
