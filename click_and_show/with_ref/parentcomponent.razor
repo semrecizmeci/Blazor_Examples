@@ -1,0 +1,19 @@
+@page "/parent"
+
+<h3>Parent Component</h3>
+<ChildComponent @ref="childRef"></ChildComponent>
+<button @onclick="ShowText">Göster</button>
+<p>@displayText</p>
+
+@code {
+    private ChildComponent childRef;
+    private string displayText = "";
+
+    private void ShowText()
+    {
+        if (childRef != null)
+        {
+            displayText = childRef.MyProperty == 0 ? "SELAM!" : "Merhaba!";
+        }
+    }
+}
