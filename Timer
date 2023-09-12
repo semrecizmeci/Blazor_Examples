@@ -1,0 +1,39 @@
+@using System.Timers
+@page "/timer"
+
+
+<h3>Timer Example</h3>
+<p>Elapsed Time: @elapsedTime seconds</p>
+
+@code {
+    private Timer timer;
+    private int elapsedTime;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        // Timer oluştur ve ayarla
+        timer = new Timer(1000); // 1000 milisaniye (1 saniye) aralıklarla tetiklenecek
+        timer.Elapsed += TimerElapsed; // Timer tetiklendiğinde çağrılacak metot
+        timer.Start(); // Timer'ı başlat
+    }
+
+    private void TimerElapsed(object sender, ElapsedEventArgs e)
+    {
+        // Timer tetiklendiğinde bu metot çağrılır
+        Console.WriteLine("selam");
+        elapsedTime++;
+
+        InvokeAsync(() =>
+        {
+            StateHasChanged(); // Blazor'a güncelleme yapıldığını bildir
+        });
+    }
+
+    public void Dispose()
+    {
+        // Timer'ı temizle
+        timer.Dispose();
+    }
+}
