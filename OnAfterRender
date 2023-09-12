@@ -1,0 +1,39 @@
+
+@page "/after-render"
+
+<h3>Timer Example</h3>
+<p>Click the button to get the current time.</p>
+<button @onclick="GetCurrentTime">Get Current Time</button>
+
+@code {
+    private bool renderComplete = false;
+
+    private async Task GetCurrentTime()
+    {
+        // Şu anki zamanı alın
+        DateTime currentTime = DateTime.Now;
+
+        // Zamanı konsola yazdırın
+        Console.WriteLine("Current Time: " + currentTime.ToString());
+
+        // Render tamamlandığını işaretle
+        renderComplete = true;
+
+        // Asenkron olarak yeniden render etmek için InvokeAsync kullanın
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // İlk render işlemi
+            Console.WriteLine("The component has been first rendered.");
+        }
+        else if (renderComplete)
+        {
+            // İlk render işlemi değilse ve render tamamlandıysa
+            Console.WriteLine("The component has been re-rendered.");
+        }
+    }
+}
