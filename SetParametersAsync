@@ -1,0 +1,27 @@
+@page "/pc/{Param1?}"
+<h3>Component1</h3>
+<p>@message</p>
+<p>@Param1</p>
+@code {
+    string message;
+    [Parameter]
+    public string Param1 { get; set; }
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        await base.SetParametersAsync(parameters);
+        if (parameters.TryGetValue<string>(nameof(Param1),out var value))
+        {
+            if (value is null)
+            {
+                Param1 = "some default value";
+                message = "user does not supply any value";
+            }
+            else
+            {
+                message = "user supplied the value of param: " + this.Param1;
+                StateHasChanged();
+            }
+        }
+      
+    }
+}
