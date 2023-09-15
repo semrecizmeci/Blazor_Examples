@@ -1,0 +1,47 @@
+@page "/pc"
+<EditForm Model="@formData" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div class="form-group">
+        <label for="input1">Input 1:</label>
+        <InputText id="input1" @bind-Value="formData.Input1" class="form-control" />
+        <ValidationMessage For="@(() => formData.Input1)" />
+    </div>
+
+    <div class="form-group">
+        <label for="input2">Input 2:</label>
+        <InputText id="input2" @bind-Value="formData.Input2" class="form-control" />
+        <ValidationMessage For="@(() => formData.Input2)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Formu Gönder</button>
+</EditForm>
+
+@if (formSubmitted)
+{
+    <div>
+        <p>Input 1: @formData.Input1</p>
+        <p>Input 2: @formData.Input2</p>
+    </div>
+}
+
+@code {
+    private class FormData
+    {
+        [Required(ErrorMessage = "Input 1 zorunludur.")]
+        public string Input1 { get; set; }
+
+        [Required(ErrorMessage = "Input 2 zorunludur.")]
+        public string Input2 { get; set; }
+    }
+
+    private FormData formData = new FormData();
+    private bool formSubmitted = false;
+
+    private void HandleValidSubmit()
+    {
+        formSubmitted = true;
+        // Burada formun gönderilmesiyle yapılması gereken işlemleri gerçekleştirin
+        // formData.Input1 ve formData.Input2, kullanıcının girdilerini içerir.
+    }
+}
