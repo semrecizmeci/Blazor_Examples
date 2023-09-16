@@ -1,0 +1,23 @@
+@page "/yes"
+
+<h3>EmployeeiComponent</h3>
+
+@inject IEmployee myService
+
+@foreach (Employees e in list)
+{
+    <p>@e.name , 
+    @e.age</p>
+}
+
+@code {
+
+    List<Employees> list;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        list = myService.GetAllEmployee();
+    }
+
+}
