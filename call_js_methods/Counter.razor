@@ -1,0 +1,28 @@
+@page "/counter"
+@inject IJSRuntime JS;
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button @onclick="ShowAlert">tıhhla</button>
+<button @onclick="showSum">topla</button>
+<p>toplam : @sum</p>
+@code {
+    private int currentCount = 0;
+    public int sum = 0;
+    public async void showSum()
+    {
+        sum = await JS.InvokeAsync<int>("findSum", 2, 3);
+        StateHasChanged();
+    }
+    public async void ShowAlert() 
+    {
+        await JS.InvokeVoidAsync("JSAlert");
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
